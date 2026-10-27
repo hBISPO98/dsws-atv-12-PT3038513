@@ -1,16 +1,45 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}Flasky{% endblock %}
+{% block title %}Flasky - Cadastro{% endblock %}
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    <h1>Olá, {% if name %}{{ name }}{% else %}Visitante{% endif %}!</h1>
+
     {% if not known %}
-    <p>Pleased to meet you!</p>
+        <p>Prazer em te conhecer!</p>
+        <p>E-mail enviado para o <strong>Administrador do sistema</strong>, notificando o cadastro de um novo usuário.</p>
     {% else %}
-    <p>Happy to see you again!</p>
+        <p>Que bom te ver novamente!</p>
     {% endif %}
 </div>
+
+<!-- Renderiza o formulário contendo o campo de Nome e o campo de E-mail -->
 {{ wtf.quick_form(form) }}
+
+<hr>
+
+<!-- Seção para exibir a listagem dos usuários salvos no banco de dados -->
+<h3>Relação de usuários cadastrados</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome do usuário</th>
+            <th>Função</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for u in users %}
+        <tr>
+            <td>{{ u.username }}</td>
+            <td>{% if u.role %}{{ u.role.name }}{% else %}User{% endif %}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="2">Nenhum usuário cadastrado ainda.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
