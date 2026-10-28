@@ -26,7 +26,7 @@ def send_simple_message(to, subject, newUser):
 
     # Definição dos destinatários (e-mails fixos + e-mail digitado no formulário)
     # Garante envio para o e-mail informado no cadastro caso seja válido/autorizado
-    destinatarios_lista = ["flaskaulasweb@zohomail.com", "b.hiandra@aluno.ifsp.edu.br"]
+    destinatarios_lista = ["flaskaulaseb@zohomail.com", "b.hiandra@aluno.ifsp.edu.br"]
     if to and to not in destinatarios_lista:
         destinatarios_lista.append(to)
 
