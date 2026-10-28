@@ -45,4 +45,17 @@ Evolução da aplicação web em Flask com transição para o serviço de e-mail
 
 ---
 
+## 👩🏽‍💻 Demonstração
+<div align="center">
 
+| Home Principal |
+| :---: |
+| <img src="https://github.com/user-attachments/assets/7cf24b4b-d99f-4579-b827-4a816e5bd262" /> |
+
+<br>
+
+| E-mail de Notificação de Novo Usuário Cadastrado |
+| :---: |
+| <img src="https://github.com/user-attachments/assets/12a7f8eb-6567-4578-8cfb-398d93eb5cce" /> |
+
+</div>
