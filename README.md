@@ -1,17 +1,17 @@
-Módulo 2 ✉️
+# Módulo 2 ✉️
 
 Evolução da aplicação web em Flask com transição para o serviço de e-mail seguro via Flask-Mail/SMTP (Gmail com Senha de App) e refinamento das notificações multi-destinatários. O grande objetivo desta versão foi garantir o envio estável de e-mails de notificação sem bloqueios de rede no PythonAnywhere, atendendo aos requisitos de notificação simultânea para o professor, o aluno e o novo usuário cadastrado).
 
 ---
 
-🚀 O que mudou? (Refinamento da Infraestrutura de E-mail)
+## 🚀 O que mudou? (Versão Anterior vs. Versão Atual)
 
-1. Transição de API Externa para Flask-Mail (SMTP via Gmail)
+**1. Transição de API Externa para Flask-Mail (SMTP via Gmail)**
 
 - Autenticação por Senha de App: Substituição da API do Mailgun pelo Relay SMTP do Gmail com autenticação de dois fatores e Senha de App, garantindo alta entregabilidade e contornando bloqueios de porta do servidor.
 
 
-2. Notificação Multi-destinatários e Inclusão de Formulário
+**2. Notificação Multi-destinatários e Inclusão de Formulário**
 - Campo Dinâmico de E-mail: Inclusão de campo obrigatório e validado no formulário (`forms.py`) para capturar o e-mail do novo usuário cadastrado.
 
 
@@ -22,7 +22,7 @@ Evolução da aplicação web em Flask com transição para o serviço de e-mail
 
 ---
 
-⚙️ O que foi necessário implementar?
+## ⚙️ O que foi necessário implementar?
 
 - Configuração de Ambiente (.env & config.py): Definição dinâmica do servidor SMTP (`smtp.gmail.com`), porta 587 com suporte a TLS e carregamento seguro de credenciais via variáveis de ambiente.
 
@@ -34,11 +34,15 @@ Evolução da aplicação web em Flask com transição para o serviço de e-mail
 
 ---
 
-💡 Boas Práticas Adotadas
+## 💡 Boas Práticas Adotadas
 
 - Gestão Segura de Credenciais: Isolamento completo de senhas e dados sensíveis através de variáveis de ambiente (`.env`), impedindo o vazamento de chaves no repositório.
 
 
 - Disparo Assíncrono com Tratamento Anti-crash: O envio de e-mails em threads separadas evita que a requisição web fique travada aguardando o servidor SMTP, enquanto o bloco `try-except` garante a resiliência do cadastro de usuários.
 
-- Uso de listas para os destinatários no `app/email.py`, evitando erros de envio e garantindo que as mensagens cheguem corretamente sem falhas de protocolo.
+- Conformidade de Protocolo e Redundância (RFC 5321): Uso de listas para os destinatários no `app/email.py`, evitando erros de envio e garantindo que as mensagens cheguem corretamente sem falhas de protocolo.
+
+---
+
+
